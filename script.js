@@ -1,4 +1,4 @@
-const audio = document.getElementById("myAudio");
+const audio = document.getElementById("songs");
 const playIcon = document.getElementById("mainPlayIcon");
 const songTitle = document.getElementById("currentSongTitle");
 const playerContainer = document.querySelector(".music-floater");
