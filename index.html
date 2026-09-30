@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3rd Monthsary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Styles for the message section (you can move this into style.css) -->
+    <style>
+      .message-card {
+        background: rgba(255, 255, 255, 0.06);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: 25px;
+        padding: 50px 45px;
+        box-shadow: 0 0 60px rgba(167, 139, 250, 0.15);
+      }
+
+      .message-card .greeting {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        font-style: italic;
+        color: var(--primary-pink);
+        margin-bottom: 25px;
+      }
+
+      .message-card p {
+        color: var(--text-gray);
+        font-size: 1.05rem;
+        line-height: 1.95;
+        margin-bottom: 22px;
+      }
+
+      .message-card .signature {
+        margin-top: 35px;
+        font-family: var(--font-heading);
+        font-style: italic;
+        font-size: 1.3rem;
+        color: #fff;
+        text-align: right;
+      }
+
+      .message-card .signature span {
+        display: block;
+        margin-top: 6px;
+        color: var(--primary-pink);
+        font-weight: 700;
+      }
+
+      @media (max-width: 600px) {
+        .message-card {
+          padding: 32px 22px;
+        }
+        .message-card .greeting {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="welcomeScreen" class="welcome-overlay">
+      <div class="welcome-content">
+        <h1 id="typingText" class="fade-text">WHAT'S THE PASSWORD?</h1>
+        <p id="subText" class="fade-text-sub">Password is what.</p>
+
+        <div class="password-box">
+          <input
+            type="text"
+            id="secretInput"
+            name="secretInput"
+            class="password-input"
+            placeholder="Type here..."
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            data-lpignore="true"
+            data-1p-ignore
+          />
+          <button class="btn-open" onclick="checkPassword()">Enter</button>
+        </div>
+        <p id="passwordError" class="password-error"></p>
+      </div>
+    </div>
+
+    <div class="bg-fixed"></div>
+    <div class="star-overlay"></div>
+
+    <main id="mainContent" class="hidden-content">
+      <section class="hero active">
+        <div class="hero-content">
+          <h1>Us, in time.</h1>
+          <p class="subtitle">
+            We’ve already made so many little memories.
+          </p>
+
+          <div class="timer-wrapper">
+            <div class="time-segment">
+              <span id="days">00</span>
+              <span class="label">Days</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-segment">
+              <span id="hours">00</span>
+              <span class="label">Hours</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-segment">
+              <span id="minutes">00</span>
+              <span class="label">Minutes</span>
+            </div>
+            <div class="separator">:</div>
+            <div class="time-segment">
+              <span id="seconds">00</span>
+              <span class="label">Seconds</span>
+            </div>
+          </div>
+
+          <button
+            onclick="scrollToSection('playlist')"
+            class="scroll-indicator"
+            aria-label="Scroll Down"
+          >
+            <i class="fas fa-arrow-down"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="playlist" class="section">
+        <div class="section-header reveal">
+          <h2>Our favorite songs</h2>
+          <p>Melodies that always remind me of you</p>
+        </div>
+
+        <div class="track-list reveal">
+          <div
+            id="track-AboutYou"
+            class="track-item"
+            onclick="playSong('aboutyou')"
+          >
+            <div class="track-icon"><i class="fas fa-play"></i></div>
+            <div class="track-info">
+              <h3>About You</h3>
+              <p>The 1975</p>
+            </div>
+            <div class="track-duration">5:26</div>
+          </div>
+
+          <div
+            id="track-I'mInLoveWithYou"
+            class="track-item"
+            onclick="playSong('iminlovewithyou')"
+          >
+            <div class="track-icon"><i class="fas fa-play"></i></div>
+            <div class="track-info">
+              <h3>I'm in love with you</h3>
+              <p>The 1975</p>
+            </div>
+            <div class="track-duration">4:06</div>
+          </div>
+
+          <div
+            id="track-somethingaboutyou"
+            class="track-item"
+            onclick="playSong('somethingaboutyou')"
+          >
+            <div class="track-icon"><i class="fas fa-play"></i></div>
+            <div class="track-info">
+              <h3>Something About You</h3>
+              <p>Eyesdress & Drent May</p>
+            </div>
+            <div class="track-duration">2:33</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="message" class="section">
+        <div class="section-header reveal">
+          <h2>Message for you</h2>
+          <p>Happy 3rd monthsary, iya</p>
+        </div>
+
+        <div class="message-card reveal">
+          <p class="greeting">My sweetheart,</p>
+
+          <p>
+            Three months. Kinda wired how quickly it went, but also how much has happened in that time.
+            We've had our moments, obviously, but im still glad it's you. 
+            I love how we can be ourselves around each other, and how we can talk about anything and everything. 
+            I love how we can laugh together, and how we can support each other through the tough times.
+          </p>
+
+          <p>
+            I won't pretend we're perfect. We'll have our misunderstandings and
+            our hard days, but I promise to keep choosing you through all of
+            them. This is only the beginning of us, and I'm so excited for
+            everything that's next: more memories to make, more things to do together,
+            and more monthsaries to celebrate together.
+          </p>
+
+          <p>
+            Anyway, I just wanted to say thank you. Thank you for being you, for
+            being here, and for being mine. I love you more than words can say.
+          </p>
+
+          <p class="signature">
+            Happy monthsary again, sweetie,
+            <span>Maki</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="section closing-section reveal">
+        <div class="closing-content">
+          <h2 class="gradient-text-big">
+            Spam-click<br />there's a magic,<br /><span
+              class="highlight-pink"
+              >my heart</span
+            >
+          </h2>
+
+          <div class="glow-box">
+            <i
+              class="fas fa-heart heart-beat"
+              id="loveIcon"
+              onclick="createHeartShower()"
+            ></i>
+            <p>
+              Thank you for being a part of my life.
+            </p>  
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="music-floater" id="playerBar">
+      <div class="floater-info">
+        <div class="equalizer"><span></span><span></span><span></span></div>
+        <span id="currentSongTitle" class="song-title">Choose a song...</span>
+      </div>
+      <button
+        onclick="toggleMusic()"
+        class="btn-control"
+        aria-label="Play Music"
+      >
+        <i class="fas fa-play" id="mainPlayIcon"></i>
+      </button>
+    </div>
+
+    <audio id="myAudio" loop></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
