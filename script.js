@@ -8,7 +8,7 @@ let currentPlayingKey = null;
 
 const songs = {
   aboutyou:         { url: "songs/About%20You.mp3", title: "About You - The 1975" },
-  iminlovewithyou:  { url: "songs/I'm%20in%20love%20with%20you.mp3", title: "I'm in love with you - The 1975" },
+  iminlovewithyou:  { url: "songs/I'm%20In%20Love%20With%20You.mp3", title: "I'm in love with you - The 1975" },
   somethingaboutyou: { url: "songs/Something%20About%20You.mp3", title: "Something About You - Eyesdress & Drent May" }
 };
 
