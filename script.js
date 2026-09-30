@@ -106,7 +106,7 @@ function playSong(key) {
 function toggleMusic() {
   // Nothing chosen yet: start the first song
   if (!currentPlayingKey) {
-    playSong("theonlyexception");
+    playSong("aboutyou");
     return;
   }
   if (audio.paused) {
